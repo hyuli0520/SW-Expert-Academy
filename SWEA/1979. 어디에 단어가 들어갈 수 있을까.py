@@ -16,25 +16,25 @@ for test_case in range(1, T + 1):
             elif matrix[i][j] == 0:
                 white_count = 0
 
-            if white_count == K:
-                if j >= N - 1:
+            if white_count == K: # 흰색 칸이 K와 개수가 같을 때
+                if j >= N - 1: # 뒤에 더 없다면 ok
                     ans += 1
                 else:
-                    if matrix[i][j + 1] == 0:
+                    if matrix[i][j + 1] == 0: # 아니라면 뒤에 검정색이 나오면 ok
                         ans += 1
 
         white_count = 0
-        for k in range(N): # 행 순회
+        for k in range(N): # 열 순회
             if matrix[k][i] == 1:
                 white_count += 1
             elif matrix[k][i] == 0:
                 white_count = 0
 
-            if white_count == K:
-                if k >= N - 1:
+            if white_count == K: # 흰색 칸이 K와 개수가 같을 때
+                if k >= N - 1: # 뒤에 더 없다면 ok
                     ans += 1
                 else:
-                    if matrix[k + 1][i] == 0:
+                    if matrix[k + 1][i] == 0: # 아니라면 뒤에 검정색이 나오면 ok
                         ans += 1
 
     print(f"#{test_case} {ans}")
